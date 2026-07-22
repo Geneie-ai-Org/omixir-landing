@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TechnologyRouteImport } from './routes/technology'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ProductsRouteImport } from './routes/products'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
@@ -20,6 +21,11 @@ import { Route as ProductsAssureRouteImport } from './routes/products.assure'
 const TechnologyRoute = TechnologyRouteImport.update({
   id: '/technology',
   path: '/technology',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProductsRoute = ProductsRouteImport.update({
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/products': typeof ProductsRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
   '/products/assure': typeof ProductsAssureRoute
   '/products/geneie': typeof ProductsGeneieRoute
@@ -67,6 +74,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/products': typeof ProductsRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
   '/products/assure': typeof ProductsAssureRoute
   '/products/geneie': typeof ProductsGeneieRoute
@@ -77,6 +85,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/products': typeof ProductsRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/technology': typeof TechnologyRoute
   '/products/assure': typeof ProductsAssureRoute
   '/products/geneie': typeof ProductsGeneieRoute
@@ -88,6 +97,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/products'
+    | '/sitemap.xml'
     | '/technology'
     | '/products/assure'
     | '/products/geneie'
@@ -97,6 +107,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/products'
+    | '/sitemap.xml'
     | '/technology'
     | '/products/assure'
     | '/products/geneie'
@@ -106,6 +117,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/products'
+    | '/sitemap.xml'
     | '/technology'
     | '/products/assure'
     | '/products/geneie'
@@ -116,6 +128,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   ProductsRoute: typeof ProductsRouteWithChildren
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TechnologyRoute: typeof TechnologyRoute
 }
 
@@ -126,6 +139,13 @@ declare module '@tanstack/react-router' {
       path: '/technology'
       fullPath: '/technology'
       preLoaderRoute: typeof TechnologyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/products': {
@@ -192,6 +212,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   ProductsRoute: ProductsRouteWithChildren,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TechnologyRoute: TechnologyRoute,
 }
 export const routeTree = rootRouteImport
