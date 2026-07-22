@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
+import omixirLogo from "@/assets/omixir-logo.png.asset.json";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -9,16 +10,14 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="flex h-8 w-8 items-center justify-center rounded-md gradient-brand text-primary-foreground">
-            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M6 3c4 4 8 14 12 18M18 3c-4 4-8 14-12 18" strokeLinecap="round" />
-              <path d="M8 6h8M8 18h8M9 10h6M9 14h6" strokeLinecap="round" opacity="0.6" />
-            </svg>
-          </span>
-          <span className="text-lg font-semibold tracking-tight text-foreground">
-            Omixir<span className="text-secondary"> Bioinformatics</span>
-          </span>
+        <Link to="/" className="flex items-center gap-2" aria-label="Omixir Bioinformatics home">
+          <img
+            src={omixirLogo.url}
+            alt="Omixir Bioinformatics"
+            className="h-8 w-auto"
+            width={160}
+            height={32}
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
