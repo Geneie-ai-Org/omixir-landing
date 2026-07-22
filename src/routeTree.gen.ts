@@ -9,12 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TechnologyRouteImport } from './routes/technology'
 import { Route as ProductsRouteImport } from './routes/products'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductsGeneieRouteImport } from './routes/products.geneie'
 import { Route as ProductsAssureRouteImport } from './routes/products.assure'
 
+const TechnologyRoute = TechnologyRouteImport.update({
+  id: '/technology',
+  path: '/technology',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductsRoute = ProductsRouteImport.update({
   id: '/products',
   path: '/products',
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/products': typeof ProductsRouteWithChildren
+  '/technology': typeof TechnologyRoute
   '/products/assure': typeof ProductsAssureRoute
   '/products/geneie': typeof ProductsGeneieRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/products': typeof ProductsRouteWithChildren
+  '/technology': typeof TechnologyRoute
   '/products/assure': typeof ProductsAssureRoute
   '/products/geneie': typeof ProductsGeneieRoute
 }
@@ -60,6 +68,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/products': typeof ProductsRouteWithChildren
+  '/technology': typeof TechnologyRoute
   '/products/assure': typeof ProductsAssureRoute
   '/products/geneie': typeof ProductsGeneieRoute
 }
@@ -69,15 +78,23 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/products'
+    | '/technology'
     | '/products/assure'
     | '/products/geneie'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/products' | '/products/assure' | '/products/geneie'
+  to:
+    | '/'
+    | '/about'
+    | '/products'
+    | '/technology'
+    | '/products/assure'
+    | '/products/geneie'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/products'
+    | '/technology'
     | '/products/assure'
     | '/products/geneie'
   fileRoutesById: FileRoutesById
@@ -86,10 +103,18 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ProductsRoute: typeof ProductsRouteWithChildren
+  TechnologyRoute: typeof TechnologyRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/technology': {
+      id: '/technology'
+      path: '/technology'
+      fullPath: '/technology'
+      preLoaderRoute: typeof TechnologyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/products': {
       id: '/products'
       path: '/products'
@@ -146,6 +171,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ProductsRoute: ProductsRouteWithChildren,
+  TechnologyRoute: TechnologyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
