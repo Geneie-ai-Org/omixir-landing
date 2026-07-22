@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ProductsRouteImport } from './routes/products'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProductsGeneieRouteImport } from './routes/products.geneie'
 import { Route as ProductsAssureRouteImport } from './routes/products.assure'
 
 const ProductsRoute = ProductsRouteImport.update({
@@ -29,6 +30,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductsGeneieRoute = ProductsGeneieRouteImport.update({
+  id: '/geneie',
+  path: '/geneie',
+  getParentRoute: () => ProductsRoute,
+} as any)
 const ProductsAssureRoute = ProductsAssureRouteImport.update({
   id: '/assure',
   path: '/assure',
@@ -40,12 +46,14 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/products': typeof ProductsRouteWithChildren
   '/products/assure': typeof ProductsAssureRoute
+  '/products/geneie': typeof ProductsGeneieRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/products': typeof ProductsRouteWithChildren
   '/products/assure': typeof ProductsAssureRoute
+  '/products/geneie': typeof ProductsGeneieRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +61,25 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/products': typeof ProductsRouteWithChildren
   '/products/assure': typeof ProductsAssureRoute
+  '/products/geneie': typeof ProductsGeneieRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/products' | '/products/assure'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/products'
+    | '/products/assure'
+    | '/products/geneie'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/products' | '/products/assure'
-  id: '__root__' | '/' | '/about' | '/products' | '/products/assure'
+  to: '/' | '/about' | '/products' | '/products/assure' | '/products/geneie'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/products'
+    | '/products/assure'
+    | '/products/geneie'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -91,6 +111,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/products/geneie': {
+      id: '/products/geneie'
+      path: '/geneie'
+      fullPath: '/products/geneie'
+      preLoaderRoute: typeof ProductsGeneieRouteImport
+      parentRoute: typeof ProductsRoute
+    }
     '/products/assure': {
       id: '/products/assure'
       path: '/assure'
@@ -103,10 +130,12 @@ declare module '@tanstack/react-router' {
 
 interface ProductsRouteChildren {
   ProductsAssureRoute: typeof ProductsAssureRoute
+  ProductsGeneieRoute: typeof ProductsGeneieRoute
 }
 
 const ProductsRouteChildren: ProductsRouteChildren = {
   ProductsAssureRoute: ProductsAssureRoute,
+  ProductsGeneieRoute: ProductsGeneieRoute,
 }
 
 const ProductsRouteWithChildren = ProductsRoute._addFileChildren(
