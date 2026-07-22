@@ -1,17 +1,19 @@
 import { Link } from "@tanstack/react-router";
+import omixirLogo from "@/assets/omixir-logo.png.asset.json";
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-[oklch(0.16_0.04_240)] text-[oklch(0.85_0.02_240)]">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-4">
         <div className="md:col-span-2">
-          <div className="flex items-center gap-2">
-            <span className="flex h-8 w-8 items-center justify-center rounded-md gradient-brand text-primary-foreground">
-              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M6 3c4 4 8 14 12 18M18 3c-4 4-8 14-12 18" strokeLinecap="round" />
-              </svg>
-            </span>
-            <span className="text-lg font-semibold text-white">Omixir Bioinformatics</span>
+          <div className="inline-flex items-center rounded-md bg-white px-3 py-2">
+            <img
+              src={omixirLogo.url}
+              alt="Omixir Bioinformatics"
+              className="h-8 w-auto"
+              width={160}
+              height={32}
+            />
           </div>
           <p className="mt-4 max-w-md text-sm text-[oklch(0.75_0.02_240)]">
             AI-powered precision genomics for the Indian population. Transforming sequencing data
