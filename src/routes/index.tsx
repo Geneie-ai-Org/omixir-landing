@@ -23,10 +23,10 @@ export const Route = createFileRoute("/")({
         content:
           "Transforming complex sequencing data into actionable clinical insights with cutting-edge bioinformatics and AI, tuned for the Indian population.",
       },
-      { property: "og:title", content: "Omixir Bioinformatics" },
+      { property: "og:title", content: "Omixir Bioinformatics — AI-Powered Precision Genomics" },
       {
         property: "og:description",
-        content: "AI-powered precision genomics for the Indian population.",
+        content: "Transforming complex sequencing data into actionable clinical insights with cutting-edge bioinformatics and AI, tuned for the Indian population.",
       },
     ],
   }),

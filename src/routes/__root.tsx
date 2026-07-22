@@ -83,16 +83,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Omixir Bioinformatics builds NGS diagnostics, AI genomics platforms, and clinical bioinformatics tools for precision medicine.",
+          "Transforming complex sequencing data into actionable clinical insights with cutting-edge bioinformatics and AI, tuned for the Indian population.",
       },
       { name: "author", content: "Omixir Bioinformatics Pvt. Ltd." },
-      { property: "og:title", content: "Omixir Bioinformatics" },
+      { property: "og:title", content: "Omixir Bioinformatics — AI-Powered Precision Genomics" },
       {
         property: "og:description",
-        content: "AI-powered precision genomics for the Indian population.",
+        content: "Transforming complex sequencing data into actionable clinical insights with cutting-edge bioinformatics and AI, tuned for the Indian population.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Omixir Bioinformatics — AI-Powered Precision Genomics" },
+      { name: "twitter:description", content: "Transforming complex sequencing data into actionable clinical insights with cutting-edge bioinformatics and AI, tuned for the Indian population." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e1a9d0e1-f8c7-404b-b165-816be3557cd1/id-preview-52fe99a7--1a0a144b-be07-486e-a04b-944af0686921.lovable.app-1784737770601.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e1a9d0e1-f8c7-404b-b165-816be3557cd1/id-preview-52fe99a7--1a0a144b-be07-486e-a04b-944af0686921.lovable.app-1784737770601.png" },
     ],
     links: [
       {
