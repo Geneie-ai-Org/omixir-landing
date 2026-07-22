@@ -17,13 +17,13 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Omixir Bioinformatics — AI-Powered Precision Genomics" },
+      { title: "Omixir Bioinformatics — The Precision Genomics Platform for Clinical Diagnostics" },
       {
         name: "description",
         content:
           "Transforming complex sequencing data into actionable clinical insights with cutting-edge bioinformatics and AI, tuned for the Indian population.",
       },
-      { property: "og:title", content: "Omixir Bioinformatics — AI-Powered Precision Genomics" },
+      { property: "og:title", content: "Omixir Bioinformatics — The Precision Genomics Platform for Clinical Diagnostics" },
       {
         property: "og:description",
         content: "Transforming complex sequencing data into actionable clinical insights with cutting-edge bioinformatics and AI, tuned for the Indian population.",
@@ -46,9 +46,9 @@ function Home() {
               <Sparkles className="h-3.5 w-3.5" /> NGS · Bioinformatics · AI
             </span>
             <h1 className="mt-5 text-4xl font-bold leading-[1.1] text-foreground md:text-5xl lg:text-6xl">
-              AI-Powered Precision Genomics for the{" "}
+              The Precision Genomics Platform for{" "}
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Indian Population
+                Clinical Diagnostics
               </span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
