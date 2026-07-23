@@ -83,8 +83,8 @@ function Home() {
           {[
             { k: "SNV · Indel · CNV · SV", v: "Variant Coverage" },
             { k: "AI-Assisted", v: "Interpretation" },
-            { k: "Population-Aware", v: "Indian Genomic Data" },
-            { k: "Clinical-Grade", v: "Orthogonal Validation" },
+            { k: "Global Diagnostic Standards", v: "Worldwide applicability for precision medicine" },
+            { k: "Seamless Clinical Workflows", v: "Highly scalable and automated pipelines" },
           ].map((s) => (
             <div key={s.v} className="px-6 py-6 text-center">
               <div className="text-sm font-semibold text-primary md:text-base">{s.k}</div>
@@ -110,12 +110,12 @@ function Home() {
           <SolutionBlock
             eyebrow="Flagship Platform"
             title="Assure"
-            subtitle="Clarity in prenatal and rare disease diagnostics."
-            body="Assure integrates a proprietary sequencing and analysis technique to deliver comprehensive variant detection, orthogonal validation, phenotype-driven prioritization, AI-assisted interpretation, and population-aware clinical reporting — with Indian population data built in."
+            subtitle="Clarity in prenatal rare disease diagnostics."
+            body="Assure is Omixir's flagship genomics analysis platform designed to enable comprehensive and accurate detection of disease-associated genetic variants from next-generation sequencing (NGS) data. Powered by Omixir's proprietary analysis pipeline, Assure integrates advanced bioinformatics for variant prioritization, phenotype-driven interpretation, and clinically curated evidence to transform complex genomic data into actionable clinical insights."
             bullets={[
-              "SNV, Indel, CNV, SV, repeat expansion & mitochondrial variant detection",
-              "Orthogonal validation for high clinical accuracy",
-              "Phenotype-driven prioritization",
+              "Comprehensive detection of SNVs, indels, CNVs, structural variants, repeat expansions, and mitochondrial variants",
+              "Integrated annotation using ClinVar, OMIM, HGMD, dbSNP, gnomAD, and other leading genomic databases",
+              "Scalable cloud-based computational infrastructure for rapid analysis",
             ]}
             to="/products/assure"
             cta="Learn more"
