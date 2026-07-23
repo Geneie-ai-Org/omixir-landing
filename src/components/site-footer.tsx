@@ -16,8 +16,7 @@ export function SiteFooter() {
             />
           </div>
           <p className="mt-4 max-w-md text-sm text-[oklch(0.75_0.02_240)]">
-            AI-powered precision genomics for the Indian population. Transforming sequencing data
-            into actionable clinical insights.
+            Defining the Future of Genomic Diagnostics
           </p>
           <div className="mt-6 space-y-1 text-sm">
             <div>support@omixir.com</div>
