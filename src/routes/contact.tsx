@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Mail, Phone, MapPin, Send, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, Send, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -38,10 +38,7 @@ function Contact() {
                 <a href="mailto:support@omixir.com" className="hover:text-primary">support@omixir.com</a>
               </ContactItem>
               <ContactItem icon={<Phone className="h-5 w-5" />} label="Phone">
-                <a href="tel:+918903266203" className="hover:text-primary">+91 89032 66203</a>
-              </ContactItem>
-              <ContactItem icon={<MapPin className="h-5 w-5" />} label="Location">
-                Bengaluru, Karnataka, India
+                <a href="tel:+919900638928" className="hover:text-primary">+91 99006 38928</a>
               </ContactItem>
             </div>
           </div>

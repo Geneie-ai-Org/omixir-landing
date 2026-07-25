@@ -20,8 +20,7 @@ export function SiteFooter() {
           </p>
           <div className="mt-6 space-y-1 text-sm">
             <div>support@omixir.com</div>
-            <div>+91 89032 66203</div>
-            <div>Bengaluru, Karnataka, India</div>
+            <div>+91 99006 38928</div>
           </div>
         </div>
 
