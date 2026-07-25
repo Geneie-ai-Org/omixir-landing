@@ -4,9 +4,7 @@ import {
   Dna,
   Sparkles,
   ShieldCheck,
-  Microscope,
   Building2,
-  Stethoscope,
   Baby,
   FlaskConical,
   GraduationCap,
@@ -150,13 +148,12 @@ function Home() {
           </div>
           <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-7">
             {[
-              { i: FlaskConical, l: "Clinical Labs" },
               { i: Building2, l: "Hospitals" },
-              { i: Stethoscope, l: "Obstetricians" },
               { i: HeartPulse, l: "Genetic Counselors" },
+              { i: FlaskConical, l: "Clinical Labs" },
               { i: Baby, l: "IVF Clinics" },
+              { i: GraduationCap, l: "Academic Institutions" },
               { i: Pill, l: "Pharma" },
-              { i: GraduationCap, l: "Academia" },
             ].map(({ i: Icon, l }) => (
               <div
                 key={l}
