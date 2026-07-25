@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { Linkedin } from "lucide-react";
 import omixirLogo from "@/assets/omixir-logo.png.asset.json";
 
 export function SiteFooter() {
@@ -22,6 +23,15 @@ export function SiteFooter() {
             <div>support@omixir.com</div>
             <div>+91 99006 38928</div>
           </div>
+          <a
+            href="https://www.linkedin.com/company/99336820/admin/dashboard/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Omixir on LinkedIn"
+            className="mt-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+          >
+            <Linkedin className="h-4 w-4" />
+          </a>
         </div>
 
         <div>
@@ -29,7 +39,6 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-2 text-sm">
             <li><Link to="/products/assure" className="hover:text-secondary">Assure</Link></li>
             <li><Link to="/products/geneie" className="hover:text-secondary">Geneie</Link></li>
-            <li><Link to="/technology" className="hover:text-secondary">Technology</Link></li>
           </ul>
         </div>
 
