@@ -40,9 +40,6 @@ function Home() {
         <div className="absolute inset-0 opacity-[0.35] [background-image:radial-gradient(circle_at_1px_1px,oklch(0.42_0.14_235/0.25)_1px,transparent_0)] [background-size:22px_22px]" />
         <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 md:py-28 lg:py-32">
           <div className="flex flex-col justify-center">
-            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-medium text-primary">
-              <Sparkles className="h-3.5 w-3.5" /> NGS · Bioinformatics · AI
-            </span>
             <h1 className="mt-5 text-4xl font-bold leading-[1.1] text-foreground md:text-5xl lg:text-6xl">
               The Precision Genomics Platform for{" "}
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
