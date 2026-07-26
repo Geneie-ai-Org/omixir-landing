@@ -38,7 +38,7 @@ export function SiteFooter() {
           <h4 className="text-sm font-semibold text-white">Products</h4>
           <ul className="mt-4 space-y-2 text-sm">
             <li><Link to="/products/assure" className="hover:text-secondary">Assure</Link></li>
-            <li><Link to="/products/geneie" className="hover:text-secondary">Geneie</Link></li>
+            <li><a href="https://geneie.chat/" target="_blank" rel="noopener noreferrer" className="hover:text-secondary">Geneie</a></li>
           </ul>
         </div>
 

@@ -58,12 +58,14 @@ function Home() {
               >
                 Explore Assure <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link
-                to="/products/geneie"
+              <a
+                href="https://geneie.chat/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary"
               >
                 Meet Geneie AI
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -128,7 +130,7 @@ function Home() {
               "Instant literature & ACMG guideline support",
               "Automated, population-aware genomic reports",
             ]}
-            to="/products/geneie"
+            to="https://geneie.chat/"
             cta="See Geneie in action"
             visual={<GeneieVisual />}
           />
