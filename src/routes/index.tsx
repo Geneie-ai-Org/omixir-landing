@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
   Dna,
+  Sparkles,
   ShieldCheck,
   Building2,
   Baby,
