@@ -178,6 +178,8 @@ function SolutionBlock({
   eyebrow: string; title: string; subtitle: string; body: string; bullets: string[];
   to: string; cta: string; visual: React.ReactNode; reverse?: boolean;
 }) {
+  const isExternal = to.startsWith("http");
+  const linkClasses = "mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all";
   return (
     <div className={`grid gap-12 md:grid-cols-2 md:items-center ${reverse ? "md:[&>*:first-child]:order-2" : ""}`}>
       <div>
@@ -193,12 +195,18 @@ function SolutionBlock({
             </li>
           ))}
         </ul>
-        <Link
-          to={to}
-          className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all"
-        >
-          {cta} <ArrowRight className="h-4 w-4" />
-        </Link>
+        {isExternal ? (
+          <a href={to} target="_blank" rel="noopener noreferrer" className={linkClasses}>
+            {cta} <ArrowRight className="h-4 w-4" />
+          </a>
+        ) : (
+          <Link
+            to={to}
+            className={linkClasses}
+          >
+            {cta} <ArrowRight className="h-4 w-4" />
+          </Link>
+        )}
       </div>
       <div>{visual}</div>
     </div>
