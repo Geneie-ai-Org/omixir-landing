@@ -144,7 +144,7 @@ function Home() {
               Trusted across the clinical, research, and industry genomics ecosystem.
             </p>
           </div>
-          <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-7">
+          <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
             {[
               { i: Building2, l: "Hospitals" },
               { i: HeartPulse, l: "Genetic Counselors" },
