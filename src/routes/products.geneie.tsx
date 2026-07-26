@@ -1,16 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Sparkles, MessageSquare, BookOpen, FileText, Brain } from "lucide-react";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/products/geneie")({
-  head: () => ({
-    meta: [
-      { title: "Geneie — Conversational AI Genomics Assistant" },
-      { name: "description", content: "Geneie is Omixir's AI-powered genomics assistant for variant interpretation, literature retrieval, ACMG guideline support, and automated genomic report generation." },
-      { property: "og:title", content: "Geneie by Omixir" },
-      { property: "og:description", content: "Your conversational genomics expert." },
-    ],
-  }),
-  component: GeneiePage,
+  beforeLoad: async () => {
+    throw redirect({ href: "https://geneie.chat/" });
+  },
+  component: () => null,
 });
 
 function GeneiePage() {
