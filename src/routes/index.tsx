@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
   Dna,
-  Sparkles,
   ShieldCheck,
   Building2,
   Baby,
@@ -11,6 +10,8 @@ import {
   Pill,
   HeartPulse,
 } from "lucide-react";
+import geneieG from "@/assets/geneie-g.svg.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -291,9 +292,10 @@ function GeneieVisual() {
     <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
       <div className="flex items-center gap-2 border-b border-border px-4 py-3">
         <div className="flex h-6 w-6 items-center justify-center rounded-md gradient-brand">
-          <Sparkles className="h-3.5 w-3.5 text-primary-foreground" />
+          <img src={geneieG.url} alt="Geneie" className="h-4 w-auto" />
         </div>
         <span className="text-sm font-semibold">Geneie</span>
+
         <span className="ml-auto text-xs text-muted-foreground">geneie.chat</span>
       </div>
       <div className="space-y-3 p-4">
