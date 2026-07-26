@@ -38,10 +38,10 @@ export function SiteHeader() {
                     <div className="text-sm font-semibold text-foreground">Assure</div>
                     <div className="text-xs text-muted-foreground">Prenatal & rare disease</div>
                   </Link>
-                  <Link to="/products/geneie" className="block border-t border-border px-4 py-3 hover:bg-muted">
+                  <a href="https://geneie.chat/" target="_blank" rel="noopener noreferrer" className="block border-t border-border px-4 py-3 hover:bg-muted">
                     <div className="text-sm font-semibold text-foreground">Geneie</div>
                     <div className="text-xs text-muted-foreground">AI genomics assistant</div>
-                  </Link>
+                  </a>
                 </div>
               </div>
             )}
@@ -74,7 +74,7 @@ export function SiteHeader() {
             <MobileLink to="/" onClick={() => setOpen(false)}>Home</MobileLink>
             <MobileLink to="/about" onClick={() => setOpen(false)}>About</MobileLink>
             <MobileLink to="/products/assure" onClick={() => setOpen(false)}>Assure</MobileLink>
-            <MobileLink to="/products/geneie" onClick={() => setOpen(false)}>Geneie</MobileLink>
+            <a href="https://geneie.chat/" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="rounded-md px-3 py-2 text-sm font-medium text-foreground hover:bg-muted">Geneie</a>
             <MobileLink to="/technology" onClick={() => setOpen(false)}>Technology</MobileLink>
             <MobileLink to="/contact" onClick={() => setOpen(false)}>Contact</MobileLink>
             <Link

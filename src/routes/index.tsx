@@ -58,12 +58,14 @@ function Home() {
               >
                 Explore Assure <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link
-                to="/products/geneie"
+              <a
+                href="https://geneie.chat/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary"
               >
                 Meet Geneie AI
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -128,7 +130,7 @@ function Home() {
               "Instant literature & ACMG guideline support",
               "Automated, population-aware genomic reports",
             ]}
-            to="/products/geneie"
+            to="https://geneie.chat/"
             cta="See Geneie in action"
             visual={<GeneieVisual />}
           />
@@ -176,6 +178,8 @@ function SolutionBlock({
   eyebrow: string; title: string; subtitle: string; body: string; bullets: string[];
   to: string; cta: string; visual: React.ReactNode; reverse?: boolean;
 }) {
+  const isExternal = to.startsWith("http");
+  const linkClasses = "mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all";
   return (
     <div className={`grid gap-12 md:grid-cols-2 md:items-center ${reverse ? "md:[&>*:first-child]:order-2" : ""}`}>
       <div>
@@ -191,12 +195,18 @@ function SolutionBlock({
             </li>
           ))}
         </ul>
-        <Link
-          to={to}
-          className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all"
-        >
-          {cta} <ArrowRight className="h-4 w-4" />
-        </Link>
+        {isExternal ? (
+          <a href={to} target="_blank" rel="noopener noreferrer" className={linkClasses}>
+            {cta} <ArrowRight className="h-4 w-4" />
+          </a>
+        ) : (
+          <Link
+            to={to}
+            className={linkClasses}
+          >
+            {cta} <ArrowRight className="h-4 w-4" />
+          </Link>
+        )}
       </div>
       <div>{visual}</div>
     </div>
