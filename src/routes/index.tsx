@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion } from "motion/react";
 import {
   ArrowRight,
   Dna,
@@ -208,15 +207,9 @@ function SolutionBlock({
 
 function HeroGraphic() {
   return (
-    <div className="relative aspect-square w-full max-w-lg" style={{ perspective: "1200px" }}>
+    <div className="relative aspect-square w-full max-w-lg">
       <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/10 via-secondary/10 to-transparent blur-3xl" />
-      <motion.svg
-        viewBox="0 0 400 400"
-        className="relative h-full w-full"
-        style={{ transformStyle: "preserve-3d", transformOrigin: "50% 50%" }}
-        animate={{ rotateY: 360 }}
-        transition={{ duration: 8, ease: "linear", repeat: Infinity }}
-      >
+      <svg viewBox="0 0 400 400" className="relative h-full w-full">
         <defs>
           <linearGradient id="dna1" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0" stopColor="oklch(0.42 0.14 235)" />
@@ -252,7 +245,7 @@ function HeroGraphic() {
             <circle cx={x} cy={y} r="12" fill="none" stroke="oklch(0.42 0.14 235)" strokeOpacity="0.3" />
           </g>
         ))}
-      </motion.svg>
+      </svg>
     </div>
   );
 }
