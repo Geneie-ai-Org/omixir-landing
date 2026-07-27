@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
 import { Linkedin } from "lucide-react";
-import omixirLogo from "@/assets/omixir-logo.png.asset.json";
 
 export function SiteFooter() {
   return (
@@ -9,7 +8,7 @@ export function SiteFooter() {
         <div className="md:col-span-2">
           <div className="inline-flex items-center rounded-md bg-white px-3 py-2">
             <img
-              src={omixirLogo.url}
+              src="/omixir_logo.svg"
               alt="Omixir Bioinformatics"
               className="h-8 w-auto"
               width={160}
@@ -37,19 +36,62 @@ export function SiteFooter() {
         <div>
           <h4 className="text-sm font-semibold text-white">Products</h4>
           <ul className="mt-4 space-y-2 text-sm">
-            <li><Link to="/products/assure" className="hover:text-secondary">Assure</Link></li>
-            <li><a href="https://geneie.chat/" target="_blank" rel="noopener noreferrer" className="hover:text-secondary">Geneie</a></li>
+            <li>
+              <Link to="/products/assure" className="hover:text-secondary">
+                Assure
+              </Link>
+            </li>
+            <li>
+              <a
+                href="https://geneie.chat/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-secondary"
+              >
+                Geneie
+              </a>
+            </li>
           </ul>
         </div>
 
         <div>
           <h4 className="text-sm font-semibold text-white">Company</h4>
           <ul className="mt-4 space-y-2 text-sm">
-            <li><Link to="/about" className="hover:text-secondary">About</Link></li>
-            <li><Link to="/contact" className="hover:text-secondary">Contact</Link></li>
-            <li><a href="#" className="hover:text-secondary">Privacy Policy</a></li>
-            <li><a href="#" className="hover:text-secondary">Terms of Service</a></li>
-            <li><a href="#" className="hover:text-secondary">HIPAA / Data Compliance</a></li>
+            <li>
+              <Link
+                to="/"
+                hash="about"
+                hashScrollIntoView={{ behavior: "smooth" }}
+                className="hover:text-secondary"
+              >
+                About
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/"
+                hash="contact"
+                hashScrollIntoView={{ behavior: "smooth" }}
+                className="hover:text-secondary"
+              >
+                Contact
+              </Link>
+            </li>
+            <li>
+              <a href="#" className="hover:text-secondary">
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-secondary">
+                Terms of Service
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-secondary">
+                HIPAA / Data Compliance
+              </a>
+            </li>
           </ul>
         </div>
       </div>

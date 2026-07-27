@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import omixirLogo from "@/assets/omixir-logo.png.asset.json";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -12,7 +11,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
         <Link to="/" className="flex items-center gap-2" aria-label="Omixir Bioinformatics home">
           <img
-            src={omixirLogo.url}
+            src="/omixir_logo.svg"
             alt="Omixir Bioinformatics"
             className="h-8 w-auto"
             width={160}
@@ -22,7 +21,7 @@ export function SiteHeader() {
 
         <nav className="hidden items-center gap-8 md:flex">
           <NavLink to="/">Home</NavLink>
-          <NavLink to="/about">About</NavLink>
+          <SectionLink hash="about">About</SectionLink>
           <div
             className="relative"
             onMouseEnter={() => setProdOpen(true)}
@@ -38,7 +37,12 @@ export function SiteHeader() {
                     <div className="text-sm font-semibold text-foreground">Assure</div>
                     <div className="text-xs text-muted-foreground">Prenatal & rare disease</div>
                   </Link>
-                  <a href="https://geneie.chat/" target="_blank" rel="noopener noreferrer" className="block border-t border-border px-4 py-3 hover:bg-muted">
+                  <a
+                    href="https://geneie.chat/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block border-t border-border px-4 py-3 hover:bg-muted"
+                  >
                     <div className="text-sm font-semibold text-foreground">Geneie</div>
                     <div className="text-xs text-muted-foreground">AI genomics assistant</div>
                   </a>
@@ -46,13 +50,15 @@ export function SiteHeader() {
               </div>
             )}
           </div>
-          <NavLink to="/technology">Technology</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
+          <SectionLink hash="technology">Technology</SectionLink>
+          <SectionLink hash="contact">Contact</SectionLink>
         </nav>
 
         <div className="hidden md:block">
           <Link
-            to="/contact"
+            to="/"
+            hash="contact"
+            hashScrollIntoView={{ behavior: "smooth" }}
             className="inline-flex items-center rounded-md gradient-brand px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition hover:opacity-90"
           >
             Request a Demo
@@ -71,14 +77,34 @@ export function SiteHeader() {
       {open && (
         <div className="border-t border-border bg-background md:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-4">
-            <MobileLink to="/" onClick={() => setOpen(false)}>Home</MobileLink>
-            <MobileLink to="/about" onClick={() => setOpen(false)}>About</MobileLink>
-            <MobileLink to="/products/assure" onClick={() => setOpen(false)}>Assure</MobileLink>
-            <a href="https://geneie.chat/" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="rounded-md px-3 py-2 text-sm font-medium text-foreground hover:bg-muted">Geneie</a>
-            <MobileLink to="/technology" onClick={() => setOpen(false)}>Technology</MobileLink>
-            <MobileLink to="/contact" onClick={() => setOpen(false)}>Contact</MobileLink>
+            <MobileLink to="/" onClick={() => setOpen(false)}>
+              Home
+            </MobileLink>
+            <MobileSectionLink hash="about" onClick={() => setOpen(false)}>
+              About
+            </MobileSectionLink>
+            <MobileLink to="/products/assure" onClick={() => setOpen(false)}>
+              Assure
+            </MobileLink>
+            <a
+              href="https://geneie.chat/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="rounded-md px-3 py-2 text-sm font-medium text-foreground hover:bg-muted"
+            >
+              Geneie
+            </a>
+            <MobileSectionLink hash="technology" onClick={() => setOpen(false)}>
+              Technology
+            </MobileSectionLink>
+            <MobileSectionLink hash="contact" onClick={() => setOpen(false)}>
+              Contact
+            </MobileSectionLink>
             <Link
-              to="/contact"
+              to="/"
+              hash="contact"
+              hashScrollIntoView={{ behavior: "smooth" }}
               onClick={() => setOpen(false)}
               className="mt-2 inline-flex items-center justify-center rounded-md gradient-brand px-4 py-2 text-sm font-medium text-primary-foreground"
             >
@@ -104,10 +130,53 @@ function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
   );
 }
 
-function MobileLink({ to, children, onClick }: { to: string; children: React.ReactNode; onClick: () => void }) {
+function MobileLink({
+  to,
+  children,
+  onClick,
+}: {
+  to: string;
+  children: React.ReactNode;
+  onClick: () => void;
+}) {
   return (
     <Link
       to={to}
+      onClick={onClick}
+      className="rounded-md px-3 py-2 text-sm font-medium text-foreground hover:bg-muted"
+    >
+      {children}
+    </Link>
+  );
+}
+
+function SectionLink({ hash, children }: { hash: string; children: React.ReactNode }) {
+  return (
+    <Link
+      to="/"
+      hash={hash}
+      hashScrollIntoView={{ behavior: "smooth" }}
+      className="text-sm font-medium text-foreground/80 transition hover:text-primary"
+    >
+      {children}
+    </Link>
+  );
+}
+
+function MobileSectionLink({
+  hash,
+  children,
+  onClick,
+}: {
+  hash: string;
+  children: React.ReactNode;
+  onClick: () => void;
+}) {
+  return (
+    <Link
+      to="/"
+      hash={hash}
+      hashScrollIntoView={{ behavior: "smooth" }}
       onClick={onClick}
       className="rounded-md px-3 py-2 text-sm font-medium text-foreground hover:bg-muted"
     >
