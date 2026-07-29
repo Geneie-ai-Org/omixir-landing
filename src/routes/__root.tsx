@@ -4,12 +4,14 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { initAnalytics, capturePageview } from "../lib/analytics";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "../components/site-header";
 import { SiteFooter } from "../components/site-footer";
@@ -148,8 +150,26 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+/**
+ * Initialises PostHog once on the client and records a pageview for every resolved
+ * route. Client-side navigation does not reload the document, so without this only
+ * the very first page of a session would ever be counted.
+ */
+function useAnalytics() {
+  const href = useRouterState({ select: (state) => state.location.href });
+
+  useEffect(() => {
+    initAnalytics();
+  }, []);
+
+  useEffect(() => {
+    capturePageview(href);
+  }, [href]);
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  useAnalytics();
 
   return (
     <QueryClientProvider client={queryClient}>
