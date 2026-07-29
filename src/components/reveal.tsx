@@ -17,16 +17,6 @@ type RevealProps = {
   style?: CSSProperties;
 };
 
-/**
- * Reveals content once as it scrolls into view.
- *
- * The hidden state lives in CSS behind a `.js` class that an inline script in the
- * document head sets, so markup that never hydrates stays fully visible instead of
- * being stuck at opacity 0. That is the whole reason this is not a plain
- * `useState(false)` — server-rendered HTML would otherwise ship pre-hidden.
- *
- * Transitions are opacity/transform only, so they stay on the compositor.
- */
 export function Reveal({
   children,
   as: Tag = "div",
@@ -55,10 +45,8 @@ export function Reveal({
       ([entry]) => {
         if (!entry.isIntersecting) return;
         el.setAttribute("data-revealed", "");
-        observer.disconnect(); // once only — no replay on scroll-back
+        observer.disconnect();
       },
-      // Slightly inset from the bottom so content animates as it arrives properly,
-      // not the instant a single pixel clips the viewport.
       { threshold: 0.05, rootMargin: "0px 0px -8% 0px" },
     );
 

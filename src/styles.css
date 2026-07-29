@@ -277,19 +277,6 @@
   animation: swap-in 320ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-/*
- * SCROLL REVEAL
- *
- * Content is visible by default. The hidden state is scoped to `.js`, which the
- * inline script in the document head sets during parse — so markup that never
- * hydrates (script blocked, JS disabled, hydration error) renders fully visible
- * rather than stranded at opacity 0, and there is no visible-then-hidden flash.
- *
- * Wrapped in `no-preference` so reduced-motion users never get the hidden state at
- * all, rather than merely getting a fast transition into it.
- *
- * Only opacity/transform/filter animate, so this stays off the layout path.
- */
 @media (prefers-reduced-motion: no-preference) {
   .js [data-reveal],
   .js [data-reveal-stagger] > * {
@@ -316,10 +303,6 @@
     filter: none;
   }
 
-  /*
-   * Stagger without per-child JS or wrapper elements — a wrapper would break the
-   * bento's grid spans. Capped at 320ms so the last item never feels stranded.
-   */
   .js [data-reveal-stagger] > *:nth-child(1) {
     transition-delay: 0ms;
   }
