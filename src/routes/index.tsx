@@ -1,6 +1,27 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Dna, ShieldCheck, Building2, Baby, FlaskConical, GraduationCap, Pill, HeartPulse, Cloud, Cpu, Database, GitBranch, Layers, Microscope, Mail, Phone, Send, CheckCircle2 } from "lucide-react";
+import { Reveal } from "@/components/reveal";
+import {
+  ArrowRight,
+  Dna,
+  ShieldCheck,
+  Building2,
+  Baby,
+  FlaskConical,
+  GraduationCap,
+  Pill,
+  HeartPulse,
+  Cloud,
+  Cpu,
+  Database,
+  GitBranch,
+  Layers,
+  Microscope,
+  Mail,
+  Phone,
+  Send,
+  CheckCircle2,
+} from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -24,7 +45,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Home,
 });
-
 
 const BG = { teal: "/bg1.png", ember: "/bg2.png", violet: "/bg3.png" };
 const SPECIALTIES = [
@@ -51,7 +71,7 @@ function Home() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 gradient-brand-soft" />
         <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-2 md:py-24 lg:py-28">
-          <div className="flex flex-col justify-center">
+          <Reveal stagger className="flex flex-col justify-center">
             <h1 className="text-[2.125rem] font-bold leading-[1.1] tracking-tight text-foreground md:text-[2.625rem] lg:text-[3.5rem]">
               The Precision Genomics Platform for{" "}
               <span className="text-secondary">Clinical Diagnostics</span>
@@ -77,17 +97,20 @@ function Home() {
                 Meet Geneie AI
               </a>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="relative flex items-center justify-center">
+          <Reveal delay={160} className="relative flex items-center justify-center">
             <HeroGraphic />
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Stats strip */}
       <section className="border-y border-border bg-surface-band">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-border md:grid-cols-4">
+        <Reveal
+          stagger
+          className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-border md:grid-cols-4"
+        >
           {[
             { k: "SNV | Indel | CNV | SV", v: "Variant Coverage" },
             { k: "AI-Assisted", v: "Interpretation" },
@@ -104,7 +127,7 @@ function Home() {
               </div>
             </div>
           ))}
-        </div>
+        </Reveal>
       </section>
 
       {/* About */}
@@ -123,7 +146,7 @@ function Home() {
         </div>
 
         <div className="mx-auto max-w-6xl px-6 py-20">
-          <div className="grid gap-6 md:grid-cols-2">
+          <Reveal stagger className="grid gap-6 md:grid-cols-2">
             <div className="rounded-2xl bg-card p-8 shadow-lg shadow-black/20">
               <h3 className="mt-4 text-2xl font-bold text-foreground">Our Mission</h3>
               <p className="mt-3 leading-relaxed text-muted-foreground">
@@ -140,7 +163,7 @@ function Home() {
                 accessible to every patient and clinician.
               </p>
             </div>
-          </div>
+          </Reveal>
         </div>
 
         <div className="bg-surface-band">
@@ -152,7 +175,11 @@ function Home() {
               Comprehensive genomic analysis to detect a wide spectrum of genetic variants involved
               in a broad range of genetic disorders and diseases.
             </p>
-            <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:auto-rows-[9rem] lg:grid-cols-4">
+            <Reveal
+              stagger
+              as="ul"
+              className="mt-10 grid gap-4 sm:grid-cols-2 lg:auto-rows-[9rem] lg:grid-cols-4"
+            >
               {SPECIALTIES.map(({ t, span, feature, bg }) => (
                 <li
                   key={t}
@@ -175,7 +202,7 @@ function Home() {
                   </span>
                 </li>
               ))}
-            </ul>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -239,7 +266,7 @@ function Home() {
         </div>
 
         <div className="mx-auto max-w-6xl px-6 py-20">
-          <dl className="border-t border-border">
+          <Reveal stagger as="dl" className="border-t border-border">
             {[
               {
                 i: Layers,
@@ -285,7 +312,7 @@ function Home() {
                 <dd className="text-sm leading-relaxed text-muted-foreground ml-4">{d}</dd>
               </div>
             ))}
-          </dl>
+          </Reveal>
         </div>
 
         <div className="bg-surface-band">
@@ -298,7 +325,20 @@ function Home() {
               single interpretation surface.
             </p>
             <ul className="mt-10 flex flex-wrap gap-x-3 gap-y-3">
-              {[ "ClinVar", "OMIM", "HGMD", "dbSNP", "SIFT", "PolyPhen", "CADD", "SpliceAI", "GenomeIndia", "gnomAD", "HPO", "ACMG" ].map((n) => (
+              {[
+                "ClinVar",
+                "OMIM",
+                "HGMD",
+                "dbSNP",
+                "SIFT",
+                "PolyPhen",
+                "CADD",
+                "SpliceAI",
+                "GenomeIndia",
+                "gnomAD",
+                "HPO",
+                "ACMG",
+              ].map((n) => (
                 <li
                   key={n}
                   className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground"
@@ -368,7 +408,7 @@ function ContactForm() {
   const [sent, setSent] = useState(false);
 
   return (
-    <div className="grid gap-10 md:grid-cols-5">
+    <Reveal className="grid gap-10 md:grid-cols-5">
       <div className="md:col-span-2">
         <h3 className="text-xl font-semibold text-foreground">Contact information</h3>
         <p className="mt-2 text-sm text-muted-foreground">
@@ -455,11 +495,15 @@ function ContactForm() {
           )}
         </form>
       </div>
-    </div>
+    </Reveal>
   );
 }
 
-function ContactItem({ icon, label, children }: {
+function ContactItem({
+  icon,
+  label,
+  children,
+}: {
   icon: React.ReactNode;
   label: string;
   children: React.ReactNode;
@@ -475,7 +519,12 @@ function ContactItem({ icon, label, children }: {
   );
 }
 
-function Field({ label, name, type = "text", required }: {
+function Field({
+  label,
+  name,
+  type = "text",
+  required,
+}: {
   label: string;
   name: string;
   type?: string;
@@ -503,7 +552,16 @@ function Field({ label, name, type = "text", required }: {
   );
 }
 
-function SolutionBlock({ title, subtitle, body, bullets, to, cta, visual, reverse }: {
+function SolutionBlock({
+  title,
+  subtitle,
+  body,
+  bullets,
+  to,
+  cta,
+  visual,
+  reverse,
+}: {
   title: string;
   subtitle: string;
   body: string;
@@ -514,12 +572,13 @@ function SolutionBlock({ title, subtitle, body, bullets, to, cta, visual, revers
   reverse?: boolean;
 }) {
   const isExternal = to.startsWith("http");
-  const linkClasses = "group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors duration-200 hover:text-foreground";
+  const linkClasses =
+    "group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors duration-200 hover:text-foreground";
   const arrow = (
     <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
   );
   return (
-    <div
+    <Reveal
       className={`grid gap-12 md:grid-cols-2 md:items-center ${reverse ? "md:[&>*:first-child]:order-2" : ""}`}
     >
       <div>
@@ -551,7 +610,7 @@ function SolutionBlock({ title, subtitle, body, bullets, to, cta, visual, revers
         )}
       </div>
       <div>{visual}</div>
-    </div>
+    </Reveal>
   );
 }
 
@@ -590,7 +649,6 @@ const HELIX_TURNS = 1.5;
 const HELIX_PERIOD = 9;
 const HELIX_HALF_WIDTH = 62;
 
-
 function HeroGraphic() {
   const { ref, running } = usePausedWhenHidden<HTMLDivElement>();
 
@@ -628,8 +686,9 @@ function HeroGraphic() {
 
         {/* Orbit guides: static, they read as the analysis frame around the sequence */}
         <g fill="none" stroke="var(--color-border-strong)" strokeWidth="1">
-          <circle cx="200" cy="200" r="180" strokeDasharray="4 10" opacity="0.7" />
+          <circle cx="200" cy="200" r="180" strokeDasharray="4 10" opacity="0.6" />
           <circle cx="200" cy="200" r="140" strokeDasharray="2 8" opacity="0.45" />
+          <circle cx="200" cy="200" r="100" strokeDasharray="2 8" opacity="0.40" />
         </g>
 
         {rows.map((row, i) => (
@@ -657,33 +716,6 @@ function HeroGraphic() {
             />
             <circle cx={200 - HELIX_HALF_WIDTH} cy={row.y} r="4" fill="var(--color-primary)" />
             <circle cx={200 + HELIX_HALF_WIDTH} cy={row.y} r="4" fill="var(--color-secondary)" />
-          </g>
-        ))}
-
-        {calls.map((c, i) => (
-          <g key={i}>
-            <circle
-              cx={c.x}
-              cy={c.y}
-              r="4"
-              fill="none"
-              stroke="var(--color-secondary)"
-              strokeWidth="1.5"
-              style={{
-                animation: running ? `variant-ring 4.4s ease-out ${c.delay}s infinite` : undefined,
-                opacity: running ? undefined : 0,
-              }}
-            />
-            <circle
-              cx={c.x}
-              cy={c.y}
-              r="3"
-              fill="var(--color-secondary)"
-              style={{
-                animation: running ? `variant-call 4.4s ease-out ${c.delay}s infinite` : undefined,
-                opacity: running ? undefined : 0.85,
-              }}
-            />
           </g>
         ))}
       </svg>
@@ -786,7 +818,7 @@ function GeneieVisual() {
 function CTASection() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-20">
-      <div className="relative overflow-hidden rounded-3xl border border-border bg-surface-band px-8 py-14 text-center md:px-16">
+      <Reveal className="relative overflow-hidden rounded-3xl border border-border bg-surface-band px-8 py-14 text-center md:px-16">
         <div className="relative">
           <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
             Ready to bring precision genomics to your practice?
@@ -805,7 +837,7 @@ function CTASection() {
             <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
           </Link>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

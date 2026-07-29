@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Reveal } from "@/components/reveal";
 import { ArrowRight, ShieldCheck, Dna, Layers, Brain, FileCheck2, Users } from "lucide-react";
 
 export const Route = createFileRoute("/products/assure")({
@@ -22,7 +23,7 @@ function AssurePage() {
     <>
       <section className="relative overflow-hidden gradient-brand-soft">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 md:py-28">
-          <div className="flex flex-col justify-center">
+          <Reveal stagger className="flex flex-col justify-center">
             <span className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-secondary">
               <Dna className="h-3.5 w-3.5" strokeWidth={1.75} /> Flagship Platform
             </span>
@@ -44,9 +45,12 @@ function AssurePage() {
                 <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
               </Link>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="rounded-2xl border border-border bg-card p-6 shadow-xl shadow-black/30">
+          <Reveal
+            delay={160}
+            className="rounded-2xl border border-border bg-card p-6 shadow-xl shadow-black/30"
+          >
             <div className="flex items-center justify-between border-b border-border pb-3">
               <span className="text-sm font-semibold text-foreground">Assure · Case A-01823</span>
               <span className="rounded-full bg-secondary/12 px-2.5 py-0.5 text-xs font-medium text-secondary">
@@ -94,7 +98,7 @@ function AssurePage() {
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -102,7 +106,7 @@ function AssurePage() {
         <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
           Platform capabilities
         </h2>
-        <dl className="mt-10 border-t border-border">
+        <Reveal stagger as="dl" className="mt-10 border-t border-border">
           {[
             {
               i: Layers,
@@ -148,7 +152,7 @@ function AssurePage() {
               <dd className="text-sm leading-relaxed text-muted-foreground">{d}</dd>
             </div>
           ))}
-        </dl>
+        </Reveal>
       </section>
     </>
   );
