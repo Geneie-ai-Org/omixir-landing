@@ -26,7 +26,7 @@ function NotFoundComponent() {
         <div className="mt-6">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center rounded-md bg-primary-solid px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:brightness-110"
           >
             Go home
           </Link>
@@ -58,7 +58,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center rounded-md bg-primary-solid px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:brightness-110"
           >
             Try again
           </button>
@@ -89,14 +89,27 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "Omixir Bioinformatics — AI-Powered Precision Genomics" },
       {
         property: "og:description",
-        content: "Transforming complex sequencing data into actionable clinical insights with cutting-edge bioinformatics and AI, tuned for the Indian population.",
+        content:
+          "Transforming complex sequencing data into actionable clinical insights with cutting-edge bioinformatics and AI, tuned for the Indian population.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Omixir Bioinformatics — AI-Powered Precision Genomics" },
-      { name: "twitter:description", content: "Transforming complex sequencing data into actionable clinical insights with cutting-edge bioinformatics and AI, tuned for the Indian population." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e1a9d0e1-f8c7-404b-b165-816be3557cd1/id-preview-52fe99a7--1a0a144b-be07-486e-a04b-944af0686921.lovable.app-1784737770601.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e1a9d0e1-f8c7-404b-b165-816be3557cd1/id-preview-52fe99a7--1a0a144b-be07-486e-a04b-944af0686921.lovable.app-1784737770601.png" },
+      {
+        name: "twitter:description",
+        content:
+          "Transforming complex sequencing data into actionable clinical insights with cutting-edge bioinformatics and AI, tuned for the Indian population.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e1a9d0e1-f8c7-404b-b165-816be3557cd1/id-preview-52fe99a7--1a0a144b-be07-486e-a04b-944af0686921.lovable.app-1784737770601.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e1a9d0e1-f8c7-404b-b165-816be3557cd1/id-preview-52fe99a7--1a0a144b-be07-486e-a04b-944af0686921.lovable.app-1784737770601.png",
+      },
     ],
     links: [
       {
