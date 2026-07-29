@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Reveal } from "@/components/reveal";
 import { ArrowRight, ShieldCheck, Dna, Layers, Brain, FileCheck2, Users } from "lucide-react";
 
 export const Route = createFileRoute("/products/assure")({
@@ -22,11 +23,11 @@ function AssurePage() {
     <>
       <section className="relative overflow-hidden gradient-brand-soft">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 md:py-28">
-          <div className="flex flex-col justify-center">
-            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-medium text-primary">
-              <Dna className="h-3.5 w-3.5" /> Flagship Platform
+          <Reveal stagger className="flex flex-col justify-center">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-secondary">
+              <Dna className="h-3.5 w-3.5" strokeWidth={1.75} /> Flagship Platform
             </span>
-            <h1 className="mt-5 text-4xl font-bold leading-tight text-foreground md:text-5xl lg:text-6xl">
+            <h1 className="mt-5 text-4xl font-bold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
               Assure: Clarity in prenatal & rare disease diagnostics.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground">
@@ -38,17 +39,21 @@ function AssurePage() {
                 to="/"
                 hash="contact"
                 hashScrollIntoView={{ behavior: "smooth" }}
-                className="inline-flex items-center gap-2 rounded-md gradient-brand px-5 py-3 text-sm font-semibold text-primary-foreground shadow-md transition hover:opacity-90"
+                className="group inline-flex items-center gap-2 rounded-md gradient-brand px-5 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-[box-shadow,transform] duration-200 hover:shadow-xl hover:shadow-primary/30 active:translate-y-px"
               >
-                Request a Demo <ArrowRight className="h-4 w-4" />
+                Request a Demo
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
               </Link>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="rounded-2xl border border-border bg-card p-6 shadow-md">
+          <Reveal
+            delay={160}
+            className="rounded-2xl border border-border bg-card p-6 shadow-xl shadow-black/30"
+          >
             <div className="flex items-center justify-between border-b border-border pb-3">
-              <span className="text-sm font-semibold">Assure · Case A-01823</span>
-              <span className="rounded-full bg-secondary/20 px-2 py-0.5 text-xs font-medium">
+              <span className="text-sm font-semibold text-foreground">Assure · Case A-01823</span>
+              <span className="rounded-full bg-secondary/12 px-2.5 py-0.5 text-xs font-medium text-secondary">
                 Validated
               </span>
             </div>
@@ -58,9 +63,9 @@ function AssurePage() {
                 ["42", "Prioritized"],
                 ["6", "Reported"],
               ].map(([n, l]) => (
-                <div key={l} className="rounded-lg bg-muted p-3">
-                  <div className="text-lg font-bold text-primary">{n}</div>
-                  <div className="text-[10px] uppercase text-muted-foreground">{l}</div>
+                <div key={l} className="rounded-lg border border-border/70 bg-muted p-3">
+                  <div className="font-mono text-lg font-bold text-secondary">{n}</div>
+                  <div className="mt-0.5 text-[10px] text-muted-foreground">{l}</div>
                 </div>
               ))}
             </div>
@@ -74,24 +79,34 @@ function AssurePage() {
               ].map((r) => (
                 <div
                   key={r.g}
-                  className="grid grid-cols-12 items-center gap-2 rounded-md border border-border bg-background px-3 py-2 text-xs"
+                  className="grid grid-cols-12 items-center gap-2 rounded-md border border-border/70 bg-muted px-3 py-2 text-xs"
                 >
-                  <div className="col-span-3 font-mono font-semibold text-primary">{r.g}</div>
+                  <div className="col-span-3 font-mono font-semibold text-foreground">{r.g}</div>
                   <div className="col-span-5 font-mono text-muted-foreground">{r.v}</div>
-                  <div className="col-span-2 text-[10px] uppercase text-muted-foreground">
-                    {r.t}
+                  <div className="col-span-2 text-[10px] text-muted-foreground">{r.t}</div>
+                  <div
+                    className={`col-span-2 text-right font-medium ${
+                      r.c === "Pathogenic"
+                        ? "text-signal-pathogenic"
+                        : r.c.startsWith("Likely")
+                          ? "text-signal-likely"
+                          : "text-muted-foreground"
+                    }`}
+                  >
+                    {r.c}
                   </div>
-                  <div className="col-span-2 text-right font-medium">{r.c}</div>
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-20">
-        <h2 className="text-3xl font-bold text-foreground md:text-4xl">Platform capabilities</h2>
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <section className="mx-auto max-w-6xl px-6 py-20">
+        <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+          Platform capabilities
+        </h2>
+        <Reveal stagger as="dl" className="mt-10 border-t border-border">
           {[
             {
               i: Layers,
@@ -126,14 +141,18 @@ function AssurePage() {
           ].map(({ i: Icon, t, d }) => (
             <div
               key={t}
-              className="rounded-2xl border border-border bg-card p-6 transition hover:border-primary/40 hover:shadow-sm"
+              className="grid grid-cols-1 gap-x-6 gap-y-2 border-b border-border py-7 xl:grid-cols-[1.5rem_18rem_1fr] xl:items-baseline"
             >
-              <Icon className="h-6 w-6 text-primary" />
-              <h3 className="mt-4 text-lg font-semibold text-foreground">{t}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{d}</p>
+              <Icon
+                className="h-5 w-5 shrink-0 text-secondary xl:translate-y-0.5"
+                strokeWidth={1.5}
+                aria-hidden
+              />
+              <dt className="text-base font-semibold text-foreground">{t}</dt>
+              <dd className="text-sm leading-relaxed text-muted-foreground">{d}</dd>
             </div>
           ))}
-        </div>
+        </Reveal>
       </section>
     </>
   );
