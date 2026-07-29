@@ -136,6 +136,16 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        {/*
+          Marks the document JS-capable so the scroll-reveal hidden state in
+          styles.css can apply. It runs during head parse, before first paint, which
+          is what prevents a visible-then-hidden flash. Equally important: if this
+          never runs, every revealed element simply stays visible, so a blocked
+          script or failed hydration cannot leave the page blank.
+        */}
+        <script
+          dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }}
+        />
       </head>
       <body>
         {children}
