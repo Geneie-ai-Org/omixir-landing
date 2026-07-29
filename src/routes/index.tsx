@@ -168,7 +168,7 @@ function Home() {
 
         <div className="bg-surface-band">
           <div className="mx-auto max-w-6xl px-6 py-20">
-            <h3 className="text-3xl font-bold tracking-tight text-foreground">
+            <h3 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
               What we specialize in
             </h3>
             <p className="mt-3 max-w-3xl text-muted-foreground">
@@ -208,7 +208,7 @@ function Home() {
       </section>
 
       {/* Solutions */}
-      <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+      <section className="mx-auto max-w-7xl px-6 py-24 md:py-28">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
             Our Solutions
@@ -253,7 +253,7 @@ function Home() {
       {/* Technology */}
       <section id="technology" className="scroll-mt-16">
         <div className="relative overflow-hidden gradient-brand-soft">
-          <div className="mx-auto max-w-5xl px-6 py-20 text-center md:py-24">
+          <div className="mx-auto max-w-5xl px-6 py-20 text-center md:py-22">
             <h2 className="text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl lg:text-5xl">
               Bioinformatics engineered for clinical scale.
             </h2>
@@ -317,7 +317,7 @@ function Home() {
 
         <div className="bg-surface-band">
           <div className="mx-auto max-w-264 py-20">
-            <h3 className="text-3xl font-bold tracking-tight text-foreground">
+            <h3 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
               Databases & Prediction Models
             </h3>
             <p className="mt-3 max-w-3xl text-muted-foreground">
@@ -352,13 +352,13 @@ function Home() {
       </section>
 
       {/* Who we serve */}
-      <section className="">
-        <div className="mx-auto max-w-7xl px-6 py-20">
-          <div className="mx-auto max-w-2xl text-center">
+      <section className="py-10">
+        <div className="mx-auto max-w-264 py-20">
+          <div className="mx-auto text-left">
             <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
               Who We Serve
             </h2>
-            <p className="mt-4 text-muted-foreground">
+            <p className="mt-3 text-muted-foreground">
               Trusted across the clinical, research, and industry genomics ecosystem.
             </p>
           </div>
@@ -399,7 +399,7 @@ function Home() {
         </div>
       </section>
 
-      <CTASection />
+      {/* <CTASection /> */}
     </>
   );
 }
