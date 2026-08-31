@@ -276,7 +276,7 @@ function Home() {
               {
                 i: Microscope,
                 t: "Variant Calling & Validation",
-                d: "Variant calling with orthogonal validation across SNVs, indels, CNVs, and structural variants.",
+                d: "Variant calling across SNVs, indels, CNVs, and structural variants.",
               },
               {
                 i: GitBranch,
