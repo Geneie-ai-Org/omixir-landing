@@ -32,7 +32,7 @@ function AssurePage() {
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground">
               A highly accurate genomics platform for comprehensive SNV, Indel, CNV, and structural
-              variant detection — powered by orthogonal validation and AI-assisted interpretation.
+              variant detection.
             </p>
             <div className="mt-8">
               <Link
