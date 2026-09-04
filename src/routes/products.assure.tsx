@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/reveal";
-import { ArrowRight, ShieldCheck, Dna, Layers, Brain, FileCheck2, Users } from "lucide-react";
+import { ArrowRight, Dna, Layers, Brain, FileCheck2, Users } from "lucide-react";
 
 export const Route = createFileRoute("/products/assure")({
   head: () => ({
@@ -112,11 +112,6 @@ function AssurePage() {
               i: Layers,
               t: "Comprehensive variant detection",
               d: "SNVs, indels, CNVs, SVs, repeat expansions, and mitochondrial variants in one workflow.",
-            },
-            {
-              i: ShieldCheck,
-              t: "Orthogonal validation",
-              d: "Proprietary sequencing and analysis technique with multi-modal validation for clinical-grade accuracy.",
             },
             {
               i: Brain,
