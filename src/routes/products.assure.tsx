@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/reveal";
-import { ArrowRight, ShieldCheck, Dna, Layers, Brain, FileCheck2, Users } from "lucide-react";
+import { ArrowRight, Dna, Layers, Brain, FileCheck2, Users } from "lucide-react";
 
 export const Route = createFileRoute("/products/assure")({
   head: () => ({
@@ -32,7 +32,7 @@ function AssurePage() {
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground">
               A highly accurate genomics platform for comprehensive SNV, Indel, CNV, and structural
-              variant detection — powered by orthogonal validation and AI-assisted interpretation.
+              variant detection.
             </p>
             <div className="mt-8">
               <Link
@@ -112,11 +112,6 @@ function AssurePage() {
               i: Layers,
               t: "Comprehensive variant detection",
               d: "SNVs, indels, CNVs, SVs, repeat expansions, and mitochondrial variants in one workflow.",
-            },
-            {
-              i: ShieldCheck,
-              t: "Orthogonal validation",
-              d: "Proprietary sequencing and analysis technique with multi-modal validation for clinical-grade accuracy.",
             },
             {
               i: Brain,
