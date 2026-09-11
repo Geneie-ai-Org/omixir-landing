@@ -23,6 +23,8 @@ export function initAnalytics() {
     api_host: POSTHOG_HOST,
     capture_pageview: false,
     capture_pageleave: true,
+    // Heatmaps + scroll maps for the PostHog toolbar.
+    enable_heatmaps: true,
     session_recording: {
       maskAllInputs: true,
     },
