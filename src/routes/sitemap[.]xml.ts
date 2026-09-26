@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-const BASE_URL = "";
+// Sitemap <loc> values must be absolute URLs; relative paths are rejected by search engines.
+const BASE_URL = "https://omixir.com";
 
 interface SitemapEntry {
   path: string;

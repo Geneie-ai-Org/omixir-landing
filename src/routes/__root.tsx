@@ -133,6 +133,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
+// Organization data for search engines. Geneie is an Omixir product with its own site, and
+// geneie.chat declares Omixir as its parentOrganization; this is the other half of that link.
+const STRUCTURED_DATA = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://omixir.com/#organization",
+  name: "Omixir Bioinformatics",
+  alternateName: "Omixir",
+  legalName: "Omixir Bioinformatics Pvt. Ltd.",
+  url: "https://omixir.com/",
+  logo: "https://omixir.com/favicon1.png",
+  description:
+    "Transforming complex sequencing data into actionable clinical insights with cutting-edge bioinformatics and AI, tuned for the Indian population.",
+  email: "support@omixir.com",
+  telephone: "+91 99006 38928",
+  foundingDate: "2023",
+  address: { "@type": "PostalAddress", addressLocality: "Bangalore", addressCountry: "IN" },
+  sameAs: ["https://www.linkedin.com/company/omixir/"],
+  subOrganization: {
+    "@type": "Organization",
+    "@id": "https://geneie.chat/#organization",
+    name: "Geneie",
+    url: "https://geneie.chat/",
+  },
+};
+
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
@@ -140,6 +166,10 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
         <script
           dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA) }}
         />
       </head>
       <body>
