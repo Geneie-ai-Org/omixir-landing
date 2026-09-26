@@ -41,7 +41,7 @@ export function SiteFooter() {
             <div>+91 99006 38928</div>
           </div>
           <a
-            href="https://www.linkedin.com/company/99336820/admin/dashboard/"
+            href="https://www.linkedin.com/company/omixir/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Omixir on LinkedIn"

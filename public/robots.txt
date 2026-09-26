@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://omixir.com/sitemap.xml
